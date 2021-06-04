@@ -12,10 +12,13 @@ int main(void)
     int score = 0;
     bool out = false;
     int i = 100;
+    int j = 1;
     int count = 0;
+
     //三目运算符
     c = (a > b) ? a : b;
     cout << "三目运算符结果：" << c << endl;
+
     //while循环与switch语句
     while (1)
     {
@@ -49,7 +52,8 @@ int main(void)
         if (out)
             break;
     }
-    // do while循环：水仙花数
+
+    // do while循环：水仙花数（个位的三次方+十位的三次方+百位的三次方=自身的数字）
     do
     {
         if ((pow((i - i % 100) / 100, 3) + pow(((i % 100) - (i % 100) % 10) / 10, 3) + pow((i % 100) % 10, 3)) == i)
@@ -60,6 +64,33 @@ int main(void)
         //cout << i << endl;
         i++;
     } while (i <= 999);
+
+    // for循环语句：敲桌子(从1-100，如果数字个位含有7，或者数字十位含有7，或者该数字是7的倍数，打印敲桌子，否则直接打印数字)
+    for (i = 1; i < 100; i++)
+    {
+        if ((i % 10 == 7) || ((i - i % 10) / 10 == 7) || (i % 7 == 0))
+            cout << "敲桌子" << endl;
+        else
+            cout << i << endl;
+    }
+
+    // 嵌套循环：乘法口诀表
+    for (i = 1; i < 10; i++)
+    {
+        for (j = 1; j < 10; j++)
+        {
+            cout << i << "×" << j << "=" << (i * j) << endl;
+        }
+    }
+
+    // go to语句
+    cout << "1" << endl;
+    goto flag;
+    cout << "2" << endl;
+    cout << "3" << endl;
+flag:
+    cout << "4" << endl;
+    cout << "5" << endl;
 
     system("pause");
     return 0;
