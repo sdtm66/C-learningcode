@@ -29,6 +29,7 @@ struct Hero
 };
 void bubble_sort(struct Hero *arr, int len);
 
+/*********************主函数**************************/
 int main(void)
 {
     //结构体定义
@@ -58,7 +59,7 @@ int main(void)
     t1.id = 45678902;
     t1.student = &s1;
     cout << "李红老师的学生的姓名是：" << t1.student->name << endl;
-    //案例1
+    //案例1：3名老师，每位老师带5名学生。设计老师和学术的结构体，其中老师结构体中，有老师姓名和一个存放5名学生的教组作为成员。学术的成员
     struct Student s4[] = {{"万达1", 17, 76}, {"万达2", 16, 79}, {"万达3", 18, 67}, {"万达4", 19, 88}, {"万达5", 20, 99}};
     struct Student s5[] = {{"盛大1", 17, 76}, {"盛大2", 16, 79}, {"盛大3", 18, 67}, {"盛大4", 19, 88}, {"盛大5", 20, 99}};
     struct Student s6[] = {{"塞法1", 17, 76}, {"塞法2", 16, 79}, {"塞法3", 18, 67}, {"塞法4", 19, 88}, {"塞法5", 20, 99}};
@@ -88,12 +89,13 @@ int main(void)
     return 0;
 }
 
+/***********************其他函数定义***************************/
 //结构体地址作为函数参数
 void printscore(struct Student *pointer)
 {
     cout << pointer->name << "的分数是：" << pointer->score << endl;
 }
-
+//结构体指针作为参数的冒泡排序算法函数的定义
 void bubble_sort(struct Hero *arr, int len)
 {
     int i = 0;
