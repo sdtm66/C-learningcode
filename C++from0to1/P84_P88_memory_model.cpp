@@ -7,7 +7,6 @@
 // （4）堆区：由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收。在c++中主要利用new在堆区开辟内存；堆区开辟的数据，释放利用操作符delect
 #include <iostream>
 #include <string>
-#define MAX 10;
 using namespace std;
 
 int g_a = 10;       //全局变量，存放在全局区
@@ -65,6 +64,8 @@ int main(void)
     cout << *bb << endl;
     delete bb;
     cout << *bb << endl;
+    cout << *bb << endl;
+
     int *cc = func3();
     for (int i = 0; i < 10; i++)
     {
