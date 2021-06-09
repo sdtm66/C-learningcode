@@ -30,7 +30,7 @@
 //this指针的用途：当形参和成员变量同名时，可用this指针来区分；在类的非静态成员函数中返回对象本身，可使用return *this
 //this指针的本质：是指针常量，指针指向的地址是不可以修改的，但this指针指向的值可以修改
 // 在成员函数后面加const，修饰的是this指向，让指针指向的值也不可以修改。 void 函数名（） const {} 。除非该对象的变量是mutable： 如mutable int b；
-//在对象前加const，变为常对象
+//在对象前加const，变为常对象，常对象只能调用常函数
 #include <iostream>
 #include <string>
 using namespace std;
