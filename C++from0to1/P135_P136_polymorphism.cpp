@@ -23,7 +23,8 @@ public:
 class Cat : public Animal
 {
 public:
-    void speak()
+    //当子类重写了父类中的虚函数，子类中的虚函数表内部会替换成子类的虚函数
+    virtual void speak()
     {
         cout << "小猫在说话" << endl;
     }
@@ -38,12 +39,15 @@ void dospeak(Animal &animal)
 
 void test01()
 {
+    //当父类的指针或者引用指向子类对象时，Animal &animal = cat,发生多态
     Cat cat;
     dospeak(cat);
 }
 
 void test02()
 {
+    cout << "size of animal:" << sizeof(Animal) << endl;
+    //虚函数（表）指针的大小就是一个字节的大小8字节，指向虚函数（表），表内会记录虚函数的地址&Animal::speak
 }
 
 int main(void)
