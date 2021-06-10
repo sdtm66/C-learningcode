@@ -13,7 +13,6 @@ class Base //³éÏóÀà£ºÎŞ·¨ÊµÀı»¯¶ÔÏó£»×ÓÀà±ØĞëÖØĞ´³éÏóÀàÖĞµÄĞéº¯Êı£¬·ñÔòÒ²ÊôÓÚ³éÏ
 public:
     virtual void func() = 0; //´¿Ğéº¯Êı
 };
-
 class Son : public Base
 {
 public:
