@@ -9,7 +9,9 @@
 // 3 函数模板也可以重载
 // 4 如果函数模板可以产生更好的匹配，优先调用函数模板
 // 总结：既然提供了函数模板，最好就不要提供普通函数，否则容易出现二义性；
-
+// 局限性：自定义数据类型
+//利用具体化的模板，可以解决自定义类型的通用化
+// 学习模板并不是为了写模板，而是在STL能够运用系统提供的模板
 #include <iostream>
 #include <string>
 using namespace std;
@@ -33,6 +35,42 @@ T my_add(T a, T b, T c)
     cout << "调用第三个函数" << endl;
     return a + b + c;
 }
+//自定义数据类型利用函数模板比较
+class Person
+{
+public:
+    Person(string name1, int age1) : name(name1), age(age1) {}
+
+public:
+    string name;
+    int age;
+};
+//利用具体化Person的版本实现代码，具体化优先调用
+template <class T>
+bool my_compare(T &a, T &b)
+{
+    if (a == b)
+    {
+        return true;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+template <>
+bool my_compare(Person &p1, Person &p2)
+{
+    if ((p1.name == p2.name) && (p2.age == p2.age))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+};
 
 void test01()
 {
@@ -49,6 +87,17 @@ void test01()
 
 void test02()
 {
+    Person p1("Tom", 23);
+    Person p2("Tom", 23);
+    bool res = my_compare(p1, p2);
+    if (res)
+    {
+        cout << "p1==p2" << endl;
+    }
+    else
+    {
+        cout << "p1!=p2" << endl;
+    }
 }
 
 int main(void)
